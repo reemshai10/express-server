@@ -1,0 +1,41 @@
+html(lang='en')
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description', content=' exericse 2')
+  meta(name='author', content='Reem')
+  link(rel='stylesheet', type='text/css', href='css/index.css')
+  title pokemons Game
+  script.
+    function myFunction() {
+      location.replace("/pokemons");
+    }
+body
+   h1 Pokemons Game
+   h3 <div id="b">Instructions:</div> as you press a button " to all pokemons list " you will see all the pokemons list .<br> then click on the name or on the image and to go profile page <br> in the profile you have 2 button :<br> one the go back the list and one for home page .<br> <div id="b">back button :</div>  keep clicked on name or images  to continue uptade to pop list and see more pokemons profiles. <br> <div id="b">home button:</div> you will see now the most pop pokemon you click all along the server is on. 
+   h2 #{new Date().getFullYear()} Reem Shai 204379259 
+   
+form(action='/', method='GET')
+  p this is a  pokemon game website for population pokemon you click. 
+  input(type='button', value='To All Pokemons List' onclick="myFunction()")
+  h4 Top Pokemons Data
+  table#dataTable
+        thead
+          tr
+            th id 
+            th Name
+            th images
+        tbody
+          
+          if typeof(pop) != 'undefined'
+           each l in pop
+             tr
+              td #{l.id}
+              td #{l.name}
+              td <img src=#{l.img} alt="my picture" height="50" width="200" />
+             
+        tfoot 
+          tr
+            th(colspan='5')     
+      
+          

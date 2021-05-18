@@ -1,0 +1,59 @@
+
+html(lang='en')
+ head
+   title All Pokemons Data
+       link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
+        
+   style.
+      table.ui.celled img { display: inline-block; border: 1px solid black;}
+      table.ui.celled * {  border: 1px solid black;}
+   script.
+    function myFunction() {
+            location.replace("/");
+    }
+    
+    
+ body
+   h2 all pokemons Data
+
+   input(type='button', value='Home Page' onclick="myFunction()")
+   
+   br
+
+form(action='/pokemons' , method='GET' )
+   .ui.container
+      table.ui.celled.table.center.aligned 
+      table#dataTable
+        thead
+          tr
+            th id 
+            th Name
+            th type1
+            th type2
+            th images
+        tbody
+         each pokemon in result 
+            tr
+              td #{pokemon.id}
+              td <a href="/pokemons/#{pokemon.id}">#{pokemon.name}
+              td #{pokemon.type[0]}
+              td #{pokemon.type[1]}
+              td  <a href="/pokemons/#{pokemon.id}"><img src=#{pokemon.img} alt="my picture" height="128" width="128"/></a>
+               
+             
+                
+                
+        tfoot
+          tr
+            th(colspan='5')
+
+
+        
+        
+       
+        
+        
+      
+   
+                
+        

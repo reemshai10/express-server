@@ -1,0 +1,62 @@
+html(lang='en')
+ head
+   title Pokemon Profile
+       link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
+       link(rel='stylesheet', type='text/css', href='css/index.css') 
+   style.
+      table.ui.celled * {  display: inline-block; border: 1px solid black; }
+   script.
+    function myFunction() {
+            location.replace("/");
+    }
+    function back() {
+            location.replace("/pokemons");
+    }
+    
+ body
+  h1 Pokemon Profile
+  <img src="/#{profile.img}" alt="my picture" height="128" width="128"/> 
+  h1 name:#{profile.name}
+  h1 id:#{profile.id}
+  Strong type1:#{profile.type[0]},  type2:#{profile.type[1]} 
+  br
+  br
+  
+form(action='/pokemons/id', method='GET')        
+   .ui.container  
+      table.ui.celled.table.center.aligned 
+      table#dataTable
+        thead
+            tr
+                
+                th HP
+                th Attack
+                th Defense 
+                th Sp.Attack
+                th Sp.Defense
+                th Speed
+
+        tbody  
+            each pokemon in profile 
+                tr
+                    
+                    td #{pokemon.HP}
+                    td #{pokemon.Attack}
+                    td #{pokemon.Defense}
+                    td #{pokemon['Sp. Attack']}
+                    td #{pokemon['Sp. Defense']}
+                    td #{pokemon.Speed}  
+                    
+
+            
+                
+      tfoot
+          tr
+           th(colspan='0')           
+
+          br
+          input(type='button', value='Home Page' onclick="myFunction()")
+          input(type='button', value='Back' onclick="back()")
+
+        
+                
